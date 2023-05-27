@@ -2,6 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Flashlight Class
+
+This class represents a flashlight in a Unity game.
+It manages the functionality of the flashlight, including turning it on and off,
+adjusting power levels, and handling battery drain and charging.
+
+The flashlight can operate in different states: off, low power, high power, and flashing.
+The state transitions are controlled by user input and battery power levels.
+
+Public Variables:
+    - _lowPowerIntensity: The intensity of the flashlight in low power mode.
+    - _lowPowerSpotAngle: The spot angle of the flashlight in low power mode.
+    - _lowPowerRange: The range of the flashlight in low power mode.
+    - _highPowerIntensity: The intensity of the flashlight in high power mode.
+    - _highPowerSpotAngle: The spot angle of the flashlight in high power mode.
+    - _highPowerRange: The range of the flashlight in high power mode.
+    - _lowDrainBatterySpeed: The speed at which the battery drains in low power mode.
+    - _highDrainBatterySpeed: The speed at which the battery drains in high power mode.
+    - _maxFlickerSpeed: The maximum speed of flashlight flickering.
+    - _minFlickerSpeed: The minimum speed of flashlight flickering.
+    - _maximumBatteryPower: The maximum battery power level.
+    - _currentBatteryPower: The current battery power level.
+    - _batteryPowerModifier: The amount of battery power added or subtracted.
+    - _batteryBarLength: Length of the battery bar.
+    - _flashlightState: The current state of the flashlight.
+
+Private Variables:
+    - _flashlight: Reference to the Light component attached to the flashlight GameObject.
+    - _flashlightAudio: Reference to the AudioSource component attached to the flashlight GameObject.
+    - _switch: AudioClip for the flashlight switch sound.
+
+Private Methods:
+    - Start(): Initializes the flashlight and starts the FlashlightManager coroutine.
+    - Update(): Update loop for the flashlight logic.
+    - FlashlightManager(): Coroutine that manages the flashlight state transitions.
+    - FlashlightOff(): Logic for when the flashlight is turned off.
+    - FlashlightOnLow(): Logic for when the flashlight is on in low power mode.
+    - FlashlightOnHigh(): Logic for when the flashlight is on in high power mode.
+    - FlashlightFlashing(): Logic for when the flashlight is flashing.
+    - FlashlightModifier(): Coroutine for the flashlight flickering effect.
+
+Public Methods:
+    - AddBattery(int _batteryPowerAmount): Adds battery power to the flashlight.
+    - IncreaseMaxBattery(int _increaseMaxBatteryAmount): Increases the maximum battery power.
+
+Author: Mubashir Rasool Razvi
+Date: May 2023
+*/
+
 public class Flashlight : MonoBehaviour
 {
     private Light _flashlight;
