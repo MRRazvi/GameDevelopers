@@ -147,6 +147,7 @@ public class Flashlight : MonoBehaviour
             _flashlightAudio.PlayOneShot(_switch);
         }
 
+        // Handles the logic when the flashlight is in low power mode.
         private void FlashlightOnLow() {
               Debug.Log("FlashlightOnLow");
               _currentBatteryPower -= _lowDrainBatterySpeed * Time.deltaTime;
@@ -168,6 +169,7 @@ public class Flashlight : MonoBehaviour
               }
         }
 
+        // Handles the logic when the flashlight is in high power mode.
         private void FlashlightOnHigh() {
             Debug.Log("FlashlightOnHigh");
             _currentBatteryPower -= _highDrainBatterySpeed * Time.deltaTime;
@@ -194,6 +196,7 @@ public class Flashlight : MonoBehaviour
               }
         }
 
+        // Handles the logic when the flashlight is in flashing state.
         private void FlashlightFlashing() {
             Debug.Log("FlashlightFlashing");
             _currentBatteryPower -= _lowDrainBatterySpeed * Time.deltaTime;
